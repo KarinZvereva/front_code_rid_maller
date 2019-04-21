@@ -1,3 +1,7 @@
+body{
+    --color_border: rgb(81, 171, 245);
+    --color: rgb(225, 241, 255);
+}
 .block{
     margin: auto 5%;
     margin-top: 5%;
@@ -28,12 +32,13 @@
 }
 .block__data{
     padding: 2%;
-    border: #80d4ff 1px solid;
-    background-color: #cceeff;
+    border: var(--color_border) 1px solid;
+    background-color: var(--color);
     border-radius: 5px;
+    margin-top:  -60px;
 }
 .alphabet{
-    margin-top: 3%;
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +46,7 @@
 .alphabet-title{
     font-size: medium;
     margin-bottom: 1%;
+    font-weight: bold;
 }
 .alphabet__choose{
     display:  flex;
@@ -57,22 +63,21 @@
     align-items: stretch;
     justify-content: center;
     align-content: center;
-    border: #80d4ff 1px solid;
-    background: #d1eaf0;
     border-radius: 5px;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    margin-bottom: 2%;
 
 }
 .item{
-
-    font-size: x-large;
-    border: #80d4ff 2px solid;
+    cursor: pointer;
+    font-size: large;
+    border: var(--color_border) 1px solid;
     display: inline;
     text-align: center;
 }
-.coding, .decoding{
-    margin: auto 10%;
-    margin-top: 2%;
+fieldset{
+    margin: auto 10% !important;
+    margin-bottom: 2% !important;
 }
 .coding__message{
 
@@ -86,8 +91,33 @@
     text-align: center;
 }
 .footer{
-    background: rgb(19, 19, 19);
     height: 20px;
     width: 100%;
-    margin-top: 3%;
+
+}
+.alphabet-count{
+    border: var(--color_border) 1px solid;
+    background-color: var(--color);
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 1%;
+    padding:  1%;
+    width: 600px;
+}
+.count{
+    display: inline;
+}
+.margin{
+    margin: 1%;
+}
+.coding__button{
+    margin-left: 1%;
+}
+.flex-rigth{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.decoding__button{
+    margin: 0%;
 }

@@ -7,8 +7,10 @@
     <title>Прктика</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="practice_style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marmelad:400,500"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
     <script src="jquery-3.2.1.min.js"></script>
     <script src="index.js"></script>
 </head>
@@ -29,21 +31,25 @@
             <label for="" class="input__data-title">Параметры кода:</label>
             <div class="form-group input__data__degree flex">
                 <label for="text" class="input__data-label ">Степень (r):</label>
-                <input type="text" class="form-control input__data__degree-value" value=1  disabled>
+                <input type="number" class="form-control input__data__degree-value"  value='1'>
             </div>
             <div class="form-group input__data__count flex">
                 <label for="text" class="input__data-label">Количество переменных (m):</label>
-                <input type="text" class="form-control input__data__count-value">
+                <input type="number" class="form-control input__data__count-value" value='1'>
             </div>
         </div>
         <div class="block__data">
             <label for="text" class="block__data-title">Возможности кода:</label>
             <div class="form-group block__data__length flex">
+                <label for="" class="block__data__length-title size">Число кодовых слов:</label>
+                <input type="text" class="form-control block__data__count-value" disabled>
+            </div>
+            <div class="form-group block__data__length flex">
                 <label for="" class="block__data__length-title size">Длина кодового слова:</label>
                 <input type="text" class="form-control block__data__length-value" disabled>
             </div>
             <div class="form-group block__data__findError flex">
-                    <label for="" class="block__data__findError-title size">Обнаруженных ошибок:</label>
+                    <label for="" class=" size">Обнаруженных ошибок:</label>
                     <input type="text" class="form-control block__data__findError-value" disabled>
             </div>
             <div class="form-group block__data__fixError flex">
@@ -56,40 +62,58 @@
         <div class="alphabet-title">Алфавит</div>
         <div class="alphabet__choose">
             <div class="alphabet__choose__set" name='rus'>
-                    <input type="checkbox" class="alphabet__choose__set-rus" checked value="rus">
-                    <label for="text" >Русский</label> 
+                    <input type="checkbox" class="alphabet__choose__set-rus" id="rus" value="rus">
+                    <label for="rus" >Русский</label> 
             </div>
             <div class="alphabet__choose__set" name='en'>
-                    <input type="checkbox" class="alphabet__choose__set-en" value="en">
-                    <label for="text" >Английский</label>
+                    <input type="checkbox" class="alphabet__choose__set-en"  id="en" value="en">
+                    <label for="en" >Английский</label>
             </div>
-            <div class="alphabet__choose__set">
-                    <input type="checkbox" class="alphabet__choose__set-numbers" value="numbers">
-                    <label for="text">Цифры</label>
+            <div class="alphabet__choose__set" name='numbers'>
+                    <input type="checkbox" class="alphabet__choose__set-numbers" id="numbers" value="numbers">
+                    <label for="numbers">Цифры</label>
             </div>
-            <div class="alphabet__choose__set">
-                    <input type="checkbox" class="alphabet__choose__set-other" value="others">
-                    <label for="text">Различные знаки</label>
+            <div class="alphabet__choose__set" name='sign'>
+                    <input type="checkbox" class="alphabet__choose__set-other" id="sign" value="sign">
+                    <label for="sign">Различные знаки</label>
             </div>
+        </div>
+        <div class="alphabet-count">
+            Количество доступных символов <p class="count"></p>
         </div>
         <div class="alphabet__grid">
 
         </div>
         </div>
-        <div class="coding">
-            <label for="text" class="coding__title">Сообщение:</label>
-            <textarea name="" class="form-control coding__message"></textarea>
-            <button class="coding__button">Зашифровать</button>
-            <label for="text" class="coding__title">Результат:</label>
-            <textarea name="" class="form-control coding__result"></textarea>
-        </div>
+        <fieldset>
+            <legend>Кодирование</legend>
+            <div class="coding">
+                <div>
+                    <label for="text" class="coding__title">Сообщение:</label>
+                    <textarea name="" class="form-control coding__message"></textarea>
+                    <div class="margin flex-rigth">
+                        <input type="checkbox" name="Применить шум" class="sound" checked>Применить шум
+                        <button class="btn btn-primary coding__button">Закодировать</button>
+                    </div>
+                </div>
+                <label for="text" class="coding__title">Результат:</label>
+                <textarea name="" class="form-control coding__result"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+        <legend>Декодирование</legend>
         <div class="decoding">
-            <label for="text" class="coding__title">Сообщение:</label>
-            <textarea name="" class="form-control coding__message"></textarea>
-            <button class="coding__button">Расшифровать</button>
-            <label for="text" class="coding__title">Результат:</label>
-            <textarea name="" class="form-control coding__result"></textarea>
+            <div>
+                <label for="text" class="margin decoding__title">Сообщение:</label>
+                <textarea name="" class="form-control decoding__message"></textarea>
+                <div class="margin flex-rigth">
+                    <button class="btn btn-primary margin decoding__button">Раскодировать</button>
+                </div>
+            </div>
+            <label for="text" class=" margin decoding__title">Результат:</label>
+            <textarea name="" class=" form-control decoding__result"></textarea>
         </div>
+        </fieldset>
         <div class="footer"></div>
 </body>
 </html>
