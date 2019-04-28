@@ -1,0 +1,15 @@
+.content{
+    margin: auto 10%;
+}
+span{
+    font-weight: bold;
+}
+.footer__block{
+    float: right;
+}
+.block_prove{
+    margin-left: 30px;
+}
+legend{
+    font-size: 15px !important;
+}

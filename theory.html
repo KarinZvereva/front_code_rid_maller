@@ -5,23 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Прктика</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style_nav.css">
+    <link rel="stylesheet" href="theory_style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marmelad:400,500"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     
     <script src="jquery-3.2.1.min.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container__block">
         <div class="container-logo">
             <img src="binary-code.png" alt="logo" class="container-logo__img">
-            <div class="container-logo__title">Коды Рида-Маллера</div>
+            <div class="container-logo__title">
+                    <a href="index.html" class="link">Коды Рида-Маллера</a>
+            </div>
         </div>
         
         <div class="container-nav">
             <a href="theory.html" class="container-nav__theory font"> Теория</a>
             <a href="practice.html" class="container-nav__practice font">Практика</a>
         </div>
+    </div>  
+    <div class="content">
+        <p>
+            <span>Кодом Рида-Маллера</span>  \((RM(r,m))\) c \(r\) и \(m\) называется множество булевых функций (векторов), 
+            представляемых всеми полиномами Жегалкина от \(m\) переменных степени не выше \(r\).
+        </p>
+        <p> Минимальной расстояние: \(d = 2^{m-r}\)</p>
+        <p> Число векторов в базисе: \( k =  1 + {С}_m^1  + {С}_m^2 + ... +{С}_m^r\)</p>
+        <p> Число кодовых слов: \(2^{k}\)</p>
+
+        <fieldset>
+            <legend><span>Теорма:</span> Если \(f \in RM(r,m)\), то \(f = f_1 | f_1 + f_2\), где \(|\) - операция склейка, 
+                \( f_1 \in RM(r,m-1)\), 
+                \( f_2 \in RM(r-1,m-1)\).</legend>
+            <div>
+                <p>Доказательство: Пусть \({ y \in RM(r,m)}\).</p>
+                <div class="block_prove">
+                    <p>Представим \({y}\) в виде \({ y = x_m f_1(x_1,...,x_{m-1}) + f_2(x_1,...,x_{m-1})}\).
+                        <p>\({f_1 \in RM(r-1, m-1)}\)</p>
+                        <p>\({f_2 \in RM(r, m-1)}\)</p>
+                        <p class="footer__block">ч.т.д.</p>
+                </div>
+                </p>
+            </div>
+        </fieldset>
+
+        <fieldset>
+        <legend><span>Теорма:</span> Для кода Рида-Маллера выполняется \(d = 2^{m-r}\)</legend>
+        <div>
+            <p>Доказательство: множество \((RM(r,m))\) замкнуто относительно сложения, поэтому \((RM(r,m))\) - линейные код, следовательно \(d\) равно наименьшему весу ненулевых слов.</p>
+            <p>Индукция по \({m}\) и \({r}\):</p>
+            <div class="block_prove">
+                <p>Базис индукции: \({m = 0}\) и \({r = 0}\). </p>
+                <p>\({f_1 = 00, f_2 = 11 => d = 2 = 2^{1-0}}\)</p>
+                <p>Шаг индукции: Пусть \({f \in RM(r+1,m+1)}\), тогда \({f = f_1|f_1+f_2}\), где \({f_1 \in RM(r+1, m)}\), а \({f_2 \in RM(r,m)}\)</p>
+                <p>Для вектора \({f}\) необходимо подсчитать наименьшее число единиц.</p>
+                <p>Число единиц в слове \({ f_1|f_1+f_2 }\) не меньше, чем  число единиц в \({f_2}\).</p>
+                <p>Если \({f_1 = 0}\), то утверждение очевидно \({ f = 0|f_2 = f_2}\) .</p>
+                <p>Если \({f_1 \neq 0}\), то число единиц в \({f_1+f_2}\) может быть меньше чем в \({f_2}\).</p>
+                <p>По предположению, число единиц в \({ f_2 = 2^{m-r}}\). Тогда в \({f}\) \({d = 2^{(m+1)-(r+1)} = 2^{m-r}}\)</p>
+                <p class="footer__block">ч.т.д.</p>
+            </div>
+        </div>
+        </fieldset>
+        
+        
+        
+    </div>
+        
