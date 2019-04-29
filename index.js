@@ -14,39 +14,41 @@ var param = {
 }
 $('document').ready(function(){
     
-    $('.count').text(count);
+    // $('.count').text(count);
 
     var htmlText = toString(rus, 'rus') + toString(bigRus, 'rus') + toString(bigEn, 'en') + toString(en, 'en') + 
     toString(numbers, 'numbers') + toString(sign, 'sign');
     $('.alphabet__grid').append(htmlText);
 
-
     $('.alphabet__choose__set').click(function(event){
         var symbols = event.target.value;
         if(symbols && $(event.target).prop('checked')){
             $('.' + symbols).addClass('selected');
-            $('.selected').css('background-color','#e7f5fc');
+            // $('.selected').css('background-color','#e7f5fc');
+            $('.selected').css('border','rgb(70, 69, 69) 1px solid');
         }else{
-            $('.' + symbols).css('background-color','#ffffff');
+            // $('.' + symbols).css('background-color','#ffffff');
+            $('.' + symbols).css('border','rgb(228, 225, 225) 1px solid');
             $('.' + symbols).removeClass('selected');
         }  
-        changeParam();
+       
     })
 
     $('.item').click(function(){
         var self = $(this);
         if(self.hasClass('selected')){
-            self.css('background-color','#ffffff');
+            self.css('border','rgb(228, 225, 225) 1px solid');
             self.removeClass('selected');
         }else{
-            self.css('background-color','#e7f5fc');
+            self.css('border','rgb(70, 69, 69) 1px solid');
             self.addClass('selected');
         }
-        changeParam();
+        
     })
 
     //change m
-    $('.input__data__count-value').change(function(){
+    $('.input__data__count-value').focusout(function(){
+        console.log("m");
         var m = $(this).val();
         param.m = m>0 ? m : 1;
         setOpportunityCountCode();
@@ -55,10 +57,23 @@ $('document').ready(function(){
     });
 
     //change degree (r)
-    $('.input__data__degree-value').change(function(){
+    $('.input__data__degree-value').focusout(function(){
+        console.log("degree");
         var r = $(this).val();
         param.r = r>0 ? r : 1;
         setOpportunityErrorCode();
+        setOpportunityCountCode();
+        setOpportunityLengthCode();
+    });
+
+    $('.nav__alphabet-codeword').click(function(){
+        $('.codeword').css('display','block');
+      
+    });
+
+    $('.codeword__nav-close').click(function(){
+        $('.codeword').css('display','none');
+        
     });
 
 })
